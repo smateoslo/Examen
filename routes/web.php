@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ControladorPilotos;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [ControladorPilotos::class, 'inicio']);
+Route::post('/piloto', [ControladorPilotos::class, 'anadirP']);
+Route::post('/escuderia', [ControladorPilotos::class, 'anadirE']);
+Route::post('/lista', [ControladorPilotos::class, 'lista']);
